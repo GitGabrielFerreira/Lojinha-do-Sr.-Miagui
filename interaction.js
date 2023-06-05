@@ -48,3 +48,32 @@ let ITENS_LOJA = [
         descricao:"Vinho que harmoniza muito bem com carnes vermelhas "
     }
 ]
+
+let cardContainer = document.getElementById("itens_section");
+
+ITENS_LOJA.forEach(function(item) {
+    let card_box = document.createElement("div");
+    card_box.className = "card_box";
+
+    let nomElement = document.createElement("h3");
+    nomElement.textContent = item.nome;
+
+    let prec = document.createElement("p");
+    prec.textContent = "Preço: R$" + item.preco.toFixed(2);
+
+    let img = document.createElement("img");
+    img.src = item.url_img;
+    img.alt = item.nome;
+
+    let descricao = document.createElement("p");
+    descricao.textContent = item.descricao;
+    
+    card_box.appendChild(img);
+    card_box.appendChild(nomElement);
+    card_box.appendChild(prec);
+    card_box.appendChild(descricao);
+
+    
+    cardContainer.appendChild(card_box);
+});
+
